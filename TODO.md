@@ -10,4 +10,6 @@
 
     - bater na rota GET /occurrences ao rendenizar a pagina ✅
     - Testar se ocorrencias estao sendo puxadas corretamente em App.tsx ✅
-    - Logica de rendenizar Markers pelo array occurrences
+    - Logica de rendenizar Markers pelo array occurrences ✅
+    - Pegar coordenadas do click do mouse e cadastrar ocorrencia
+    - Juntar ocorrencias ao dar zoom out (MarkerClusterGroup)

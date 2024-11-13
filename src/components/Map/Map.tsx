@@ -8,7 +8,7 @@ import fireIcon from '../../assets/icons/fire-svgrepo-com.svg';
 import noWaterIcon from '../../assets/icons/no-liquids-svgrepo-com.svg';
 import noPowerIcon from '../../assets/icons/no-power-icon.svg';
 import protestIcon from '../../assets/icons/protest-loudspeaker-svgrepo-com.svg';
-import accidentIcon from '../../assets/icons/reflective-triangle-accident-svgrepo-com.svg';
+import accidentIcon from '../../assets/icons/reflective-triangle-accident-svgrepo-cm.svg';
 import theftIcon from '../../assets/icons/theft.svg';
 import policeCheckpointIcon from '../../assets/icons/police-checkpoint.svg';
 
