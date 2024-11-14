@@ -1,14 +1,17 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import tileLayer from '../../util/tileLayer';
 import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 import L, { LatLngBoundsExpression } from 'leaflet';
 import { Occurrence, OccurrenceType } from '../../types';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import tileLayer from '../../util/tileLayer';
+
 import constructionIcon from '../../assets/icons/construction-svgrepo-com.svg';
 import fireIcon from '../../assets/icons/fire-svgrepo-com.svg';
 import noWaterIcon from '../../assets/icons/no-liquids-svgrepo-com.svg';
 import noPowerIcon from '../../assets/icons/no-power-icon.svg';
 import protestIcon from '../../assets/icons/protest-loudspeaker-svgrepo-com.svg';
-import accidentIcon from '../../assets/icons/reflective-triangle-accident-svgrepo-cm.svg';
+import accidentIcon from '../../assets/icons/reflective-triangle-accident-svgrepo-com.svg';
 import theftIcon from '../../assets/icons/theft.svg';
 import policeCheckpointIcon from '../../assets/icons/police-checkpoint.svg';
 
@@ -98,30 +101,35 @@ const MapWrapper: React.FC<MapComponentProps> = ({ occurrences }) => {
         <MapContainer
             center={center}
             zoom={13}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true}
             maxBounds={bounds}
             maxBoundsViscosity={1.0}
+            style={{ height: '100%', width: '80vw' }}
         >
             <TileLayer {...tileLayer} />
-            {occurrences.map((occurrence) => (
-                <Marker
-                    key={occurrence.id}
-                    position={[
-                        occurrence.coordinates.lat,
-                        occurrence.coordinates.lng,
-                    ]}
-                    icon={getIconForOccurrenceType(occurrence.type)}
-                >
-                    <Popup>
-                        <div>
-                            <strong>Tipo:</strong> {occurrence.type} <br />
-                            <strong>Coordenadas:</strong>{' '}
-                            {occurrence.coordinates.lat},{' '}
-                            {occurrence.coordinates.lng}
-                        </div>
-                    </Popup>
-                </Marker>
-            ))}
+            <MarkerClusterGroup>
+                {occurrences.map((occurrence) => (
+                    <Marker
+                        key={occurrence.id}
+                        position={[
+                            occurrence.coordinates.lat,
+                            occurrence.coordinates.lng,
+                        ]}
+                        icon={getIconForOccurrenceType(occurrence.type)}
+                    >
+                        <Popup>
+                            <div>
+                                <strong>Tipo:</strong> {occurrence.type} <br />
+                                <strong>Descricao:</strong>{' '}
+                                {occurrence.description} <br />
+                                <strong>Coordenadas:</strong>
+                                {occurrence.coordinates.lat},{' '}
+                                {occurrence.coordinates.lng}
+                            </div>
+                        </Popup>
+                    </Marker>
+                ))}
+            </MarkerClusterGroup>
         </MapContainer>
     );
 };

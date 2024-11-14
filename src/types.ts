@@ -18,4 +18,5 @@ export interface Occurrence {
     id?: number;
     type: OccurrenceType;
     coordinates: Coordinates;
+    description: string;
 }

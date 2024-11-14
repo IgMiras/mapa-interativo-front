@@ -40,7 +40,7 @@ const App: React.FC = () => {
     }, []);
 
     return (
-        <div className="grid">
+        <div className="flex-container">
             <Header />
             <main id="section-example">
                 <Suspense fallback={<div>Page is Loading...</div>}>
