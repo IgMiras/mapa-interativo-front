@@ -9,3 +9,5 @@ const api = axios.create({
 });
 
 export const getOccurrences = () => api.get<Occurrence[]>('/occurrences');
+export const createOccurrence = (occurrence: Occurrence) =>
+    api.post<Occurrence>('/occurrences/send', occurrence);

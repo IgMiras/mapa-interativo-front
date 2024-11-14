@@ -14,6 +14,17 @@ export enum OccurrenceType {
     THEFT = 'theft',
 }
 
+export const occurrenceTypeLabels: Record<OccurrenceType, string> = {
+    [OccurrenceType.CONSTRUCTION]: 'Obras',
+    [OccurrenceType.ACCIDENT]: 'Acidente',
+    [OccurrenceType.CHECKPOINT]: 'Blitz',
+    [OccurrenceType.FIRE]: 'Incêndio',
+    [OccurrenceType.PROTEST]: 'Manifestações',
+    [OccurrenceType.NOWATER]: 'Sem água',
+    [OccurrenceType.NOPOWER]: 'Sem energia',
+    [OccurrenceType.THEFT]: 'Roubo',
+};
+
 export interface Occurrence {
     id?: number;
     type: OccurrenceType;
